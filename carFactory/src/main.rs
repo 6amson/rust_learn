@@ -24,6 +24,10 @@ const used_age:Age = Age::USED;
 
 fn car_factory (color: String, motor: Transmission, roof: bool, miles: u32) -> Car{
    
+    // if car.age.0 == USED {
+        
+    // }
+    
     Car{
         color: color,
         motor: motor,
@@ -34,9 +38,16 @@ fn car_factory (color: String, motor: Transmission, roof: bool, miles: u32) -> C
 }
 
 fn car_quality (miles: u32) -> (Age, u32){
-    let quality = (Age::NEW, miles);
+    if miles > 0 {
+        let quality = (Age::USED, miles);
 
-    quality
+        quality
+    }else{
+        let quality = (Age::NEW, miles);
+
+        quality
+    }
+    
 }
 
 fn main() {
@@ -44,7 +55,7 @@ fn main() {
     let colors = ["Blue", "Green", "Red", "Silver"];
 
     // println!("{:?}", new_age);
-    let mut car: Car;
+    // let mut car: Car;
     let car = car_factory(String::from(colors[1]), Manual, true, 230);
     // println!("{:?}", car)
     println!("Car order 1: {:?}, Hard top = {}, {:?}, {}, {} miles", car.age.0, car.roof, car.motor, car.color, car.age.1);
