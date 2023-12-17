@@ -25,8 +25,4 @@ fn read_file(path: &str) -> Result<String, Error>{
 fn main() {
      let _final = read_file("../carFactory/Cargo.toml");
      println!("File is here: {:?}", _final)
-    //  match file {
-    //      Ok(file_final) => println!("{:?}", file_final),
-    //      Err(error) =>{ println!("error here {}", error)},
-    //  }
 }
