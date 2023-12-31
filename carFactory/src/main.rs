@@ -1,3 +1,5 @@
+mod horn; 
+
 #[derive(PartialEq, Debug)]
 // Declare Car struct to describe vehicle with four named fields
 struct Car {
@@ -35,6 +37,8 @@ const used_age: Age = Age::USED;
 
 use std::collections::HashMap;
 
+use crate::horn::Car_honk;
+
 fn car_factory(color: String, motor: Transmission, roof: bool, miles: u32) -> Car {
     Car {
         color: color,
@@ -57,6 +61,11 @@ fn car_quality(miles: u32) -> (Age, u32) {
 }
 
 fn main() {
+
+    //using mods
+    let honk = Car_honk::new(String::from("hoink do do do"), String::from("hulala"), String::from("buzz"));
+    print!("manual cars go: {}", honk.get_manual_honk());
+
     let colors = ["Blue", "Green", "Red", "Silver"];
 
     //you can only use "let" and mutable variablesinside a function
@@ -67,7 +76,7 @@ fn main() {
     // let mut car: Car;
     let car = car_factory(String::from(colors[1]), Manual, true, 230);
     println!(
-        "Car order 1: {:?}, Hard top = {}, {:?}, {}, {} miles",
+        "\nCar order 1: {:?}, Hard top = {}, {:?}, {}, {} miles",
         car.age.0, car.roof, car.motor, car.color, car.age.1
     );
 
@@ -103,5 +112,6 @@ fn main() {
 
     let gift2: Option<i8> = None;
     // let gift2 : Option::None;
-    assert_eq!(gift2.unwrap(), 4);
+    // assert_eq!(gift2.unwrap(), 4);
+
 }

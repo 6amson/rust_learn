@@ -1,7 +1,6 @@
 //these libraries are enums, and should be treated as such.
 use std::fs::File;
 use std::io::{Error, Read};
-use std::path::PathBuf;
 
 fn read_file(path: &str) -> Result<String, Error>{
 
